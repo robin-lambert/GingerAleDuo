@@ -804,6 +804,8 @@ section {
     min-width: 24px;
 }
 
+.email-icon svg,
+.phone-icon svg,
 .instagram-icon svg {
     vertical-align: middle;
     width: 24px;
