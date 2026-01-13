@@ -1,2 +1,5 @@
-Photos/
+Photos/*.MOV
+Photos/*.mp4
+Photos/*.HEIC
+Photos/*.heic
 .DS_Store
