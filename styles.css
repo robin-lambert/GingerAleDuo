@@ -913,6 +913,34 @@ section {
 /* =====================
    Responsive Design
    ===================== */
+
+/* Tablettes / iPad */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-logo {
+        width: 55vw;
+    }
+
+    .hero-logo-text-main {
+        font-size: 45px;
+        letter-spacing: 5px;
+    }
+
+    .hero-logo-text-sub {
+        font-size: 18px;
+    }
+
+    .hero-video {
+        transform: translate(-50%, -50%) scale(0.8);
+        object-fit: cover;
+    }
+
+    .hero-crop-left,
+    .hero-crop-right {
+        width: 0;
+        display: none;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -961,6 +989,19 @@ section {
 
     .hero-logo {
         width: 80vw;
+    }
+
+    .hero-video {
+        transform: translate(-50%, -50%);
+        min-width: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-crop-left,
+    .hero-crop-right {
+        display: none;
     }
 
     .contact-card {
