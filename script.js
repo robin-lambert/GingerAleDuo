@@ -201,7 +201,7 @@ const translations = {
         'feature1-title': 'Guitare Acoustique',
         'feature1-desc': 'Accompagnement raffiné et expressif',
         'feature2-title': 'Voix',
-        'feature2-desc': 'Interprétation sensible et versatile',
+        'feature2-desc': 'Interprétation sensible et captivante',
         'feature3-title': 'Ambiance',
         'feature3-desc': 'Pop, Folk, Chanson Française et Rock',
         
