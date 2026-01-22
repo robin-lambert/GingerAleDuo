@@ -229,6 +229,7 @@ const translations = {
         'contact-event3': 'Événements d\'entreprise',
         'contact-event4': 'Galeries d\'art et soirées privées',
         'contact-event5': 'Hôtels et restaurants',
+        'contact-or': 'ou',
         
         // Footer
         'footer': '© 2026 Ginger Ale Duo. Tous droits réservés.'
@@ -283,6 +284,7 @@ const translations = {
         'contact-event3': 'Corporate events',
         'contact-event4': 'Art galleries & private parties',
         'contact-event5': 'Hotels & restaurants',
+        'contact-or': 'or',
         
         // Footer
         'footer': '© 2026 Ginger Ale Duo. All rights reserved.'
@@ -402,6 +404,10 @@ function updateLanguage(lang) {
     if (contactList[2]) contactList[2].textContent = t['contact-event3'];
     if (contactList[3]) contactList[3].textContent = t['contact-event4'];
     if (contactList[4]) contactList[4].textContent = t['contact-event5'];
+    
+    // Update contact or
+    const contactOr = document.querySelector('.contact-or');
+    if (contactOr) contactOr.textContent = t['contact-or'];
     
     // Update footer
     document.querySelector('.footer p').textContent = t['footer'];
