@@ -156,6 +156,17 @@ ul {
     fill: var(--gold-color);
 }
 
+.nav-youtube svg {
+    vertical-align: middle;
+    transition: var(--transition);
+    fill: rgba(255, 255, 255, 0.9);
+}
+
+.nav-youtube:hover svg {
+    transform: scale(1.1);
+    fill: var(--gold-color);
+}
+
 .language-switcher {
     display: flex;
     gap: 5px;
