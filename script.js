@@ -189,7 +189,7 @@ const translations = {
         
         // Hero
         'hero-subtitle': 'Duo Acoustique • Guitare & Voix',
-        'hero-description': 'De l\'intimiste au festif, l\'ambiance parfaite pour vos événements',
+        'hero-description': 'De l\'intimiste au festif, l\'ambiance parfaite pour vos événements d\'exception',
         'hero-cta': 'Nous contacter',
         
         // About
