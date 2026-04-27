@@ -720,15 +720,22 @@ section {
 }
 
 .video-link-container {
-    max-width: 800px;
-    margin: 0 auto 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
 }
 
 .video-link {
     display: block;
-    text-decoration: none;
-    color: inherit;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow);
     transition: var(--transition);
+    flex: 1 1 400px;
+    max-width: 560px;
 }
 
 .video-thumbnail {
