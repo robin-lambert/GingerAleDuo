@@ -56,39 +56,58 @@ window.addEventListener('scroll', () => {
 });
 
 // =====================
-// Intersection Observer for Animations
+// Scroll Reveal Animations
 // =====================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible');
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
         }
     });
-}, observerOptions);
+}, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
-// Observe all sections and cards
-const animatedElements = document.querySelectorAll('.feature-item, .repertoire-card, .media-item, .contact-content > div');
-animatedElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+function revealGroup(selector, direction, stagger) {
+    document.querySelectorAll(selector).forEach((el, i) => {
+        el.classList.add('reveal', direction);
+        if (stagger && i > 0) el.classList.add(`delay-${Math.min(i, 6)}`);
+        revealObserver.observe(el);
+    });
+}
+
+// Section titles → glissent depuis la gauche
+revealGroup('.section-title', 'from-left', false);
+
+// Texte "Le Duo" → depuis la gauche, en cascade
+document.querySelectorAll('.about-text > p').forEach((el, i) => {
+    el.classList.add('reveal', 'from-left');
+    if (i > 0) el.classList.add(`delay-${Math.min(i, 4)}`);
+    revealObserver.observe(el);
 });
 
-// Add CSS class for visibility
-const style = document.createElement('style');
-style.textContent = `
-    .fade-in-visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
+// Feature items → depuis le bas, en cascade
+revealGroup('.feature-item', 'from-bottom', true);
+
+// Cartes répertoire → depuis le bas, en cascade
+revealGroup('.repertoire-card', 'from-bottom', true);
+
+// Vidéos → depuis la droite, en cascade
+document.querySelectorAll('.video-link').forEach((el, i) => {
+    el.classList.add('reveal', 'from-right');
+    if (i > 0) el.classList.add(`delay-${Math.min(i * 2, 4)}`);
+    revealObserver.observe(el);
+});
+
+// Photos média → depuis la droite, décalage par colonne
+document.querySelectorAll('.media-item').forEach((el, i) => {
+    el.classList.add('reveal', 'from-right');
+    const col = i % 3;
+    if (col > 0) el.classList.add(`delay-${col}`);
+    revealObserver.observe(el);
+});
+
+// Contact card → depuis le bas
+revealGroup('.contact-card', 'from-bottom', false);
 
 // =====================
 // Contact Form
