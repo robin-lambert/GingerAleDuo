@@ -4,20 +4,22 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 75px;
             font-weight: 600;
-            fill: #c9a961;
+            fill: #ffffff;
             text-anchor: middle;
             dominant-baseline: central;
         }
         .sub-text {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 400;
-            fill: #c9a961;
+            /* PROJECT fait 7 caracteres contre 3 pour DUO : corps et
+               interlettrage reduits pour tenir dans les 100px de large. */
+            font-size: 11px;
+            font-weight: 500;
+            fill: #e9722c;
             text-anchor: middle;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
         }
     </style>
-    <rect width="100" height="100" fill="rgb(15, 39, 68)"/>
+    <rect width="100" height="100" fill="#1c1c1c"/>
     <text x="50" y="48" class="main-letter">G</text>
-    <text x="50" y="82" class="sub-text">DUO</text>
+    <text x="50" y="82" class="sub-text">PROJECT</text>
 </svg>

@@ -78,15 +78,23 @@ function revealGroup(selector, direction, stagger) {
 // Section titles → glissent depuis la gauche
 revealGroup('.section-title', 'from-left', false);
 
-// Texte "Le Duo" → depuis la gauche, en cascade
-document.querySelectorAll('.about-text > p').forEach((el, i) => {
-    el.classList.add('reveal', 'from-left');
-    if (i > 0) el.classList.add(`delay-${Math.min(i, 4)}`);
-    revealObserver.observe(el);
+// Textes "Le Duo" / "Le Quartet" → depuis la gauche, en cascade (par section)
+document.querySelectorAll('.about-text').forEach(block => {
+    block.querySelectorAll(':scope > p').forEach((el, i) => {
+        el.classList.add('reveal', 'from-left');
+        if (i > 0) el.classList.add(`delay-${Math.min(i, 4)}`);
+        revealObserver.observe(el);
+    });
 });
 
-// Feature items → depuis le bas, en cascade
-revealGroup('.feature-item', 'from-bottom', true);
+// Feature items → depuis le bas, en cascade (recommencée à chaque section)
+document.querySelectorAll('.features').forEach(group => {
+    group.querySelectorAll('.feature-item').forEach((el, i) => {
+        el.classList.add('reveal', 'from-bottom');
+        if (i > 0) el.classList.add(`delay-${Math.min(i, 6)}`);
+        revealObserver.observe(el);
+    });
+});
 
 // Cartes répertoire → depuis le bas, en cascade
 revealGroup('.repertoire-card', 'from-bottom', true);
@@ -202,6 +210,7 @@ const translations = {
         // Navigation
         'nav-home': 'Accueil',
         'nav-duo': 'Le Duo',
+        'nav-quartet': 'Le Quartet',
         'nav-repertoire': 'Répertoire',
         'nav-media': 'Média',
         'nav-contact': 'Contact',
@@ -223,7 +232,22 @@ const translations = {
         'feature2-desc': 'Interprétation sensible et captivante',
         'feature3-title': 'Ambiance',
         'feature3-desc': 'Pop, Folk, Chanson Française et Rock',
-        
+
+        // Quartet
+        'quartet-title': 'Le Quartet',
+        'quartet-lead': 'Quand le duo passe la vitesse supérieure',
+        'quartet-p1': 'Ginger Ale Quartet, c\'est notre formule festive : au duo guitare-voix viennent s\'ajouter une basse et une batterie pour un son plus ample, plus rythmé, et une énergie qui remplit la piste de danse.',
+        'quartet-p2': 'Le répertoire s\'enrichit alors de titres pop, funk, soul et rock arrangés pour le groupe, avec des versions plus longues et plus dansantes de nos morceaux, pensées pour faire monter l\'ambiance au fil de la soirée.',
+        'quartet-p3': 'Idéal pour les mariages, les soirées d\'entreprise et tous les événements où la musique doit occuper le devant de la scène. Nous pouvons aussi enchaîner les deux formules : duo en cocktail, quartet pour la fête.',
+        'quartet-feature1-title': 'Voix',
+        'quartet-feature1-desc': 'Le fil conducteur de chaque morceau',
+        'quartet-feature2-title': 'Guitare',
+        'quartet-feature2-desc': 'Riffs, groove et solos',
+        'quartet-feature3-title': 'Basse',
+        'quartet-feature3-desc': 'L\'assise groove du groupe',
+        'quartet-feature4-title': 'Batterie',
+        'quartet-feature4-desc': 'L\'énergie qui fait danser',
+
         // Repertoire
         'repertoire-title': 'Répertoire',
         'repertoire-intro': 'Quelques exemples parmi notre répertoire complet, soigneusement sélectionné pour créer l\'atmosphère parfaite',
@@ -257,6 +281,7 @@ const translations = {
         // Navigation
         'nav-home': 'Home',
         'nav-duo': 'The Duo',
+        'nav-quartet': 'The Quartet',
         'nav-repertoire': 'Repertoire',
         'nav-media': 'Media',
         'nav-contact': 'Contact',
@@ -278,7 +303,22 @@ const translations = {
         'feature2-desc': 'Sensitive and versatile performance',
         'feature3-title': 'Atmosphere',
         'feature3-desc': 'Pop, Folk, French Chanson & Rock',
-        
+
+        // Quartet
+        'quartet-title': 'The Quartet',
+        'quartet-lead': 'When the duo turns it up a notch',
+        'quartet-p1': 'Ginger Ale Quartet is our festive line-up: bass and drums join the guitar-and-voice duo for a fuller, punchier sound and the kind of energy that fills a dance floor.',
+        'quartet-p2': 'The repertoire then expands with pop, funk, soul and rock numbers arranged for the band, along with longer, more danceable versions of our songs, designed to build the mood as the night goes on.',
+        'quartet-p3': 'Perfect for weddings, corporate parties and any event where the music takes centre stage. We can also combine both formats: the duo for the cocktail hour, the quartet for the party.',
+        'quartet-feature1-title': 'Voice',
+        'quartet-feature1-desc': 'The thread running through every song',
+        'quartet-feature2-title': 'Guitar',
+        'quartet-feature2-desc': 'Riffs, groove and solos',
+        'quartet-feature3-title': 'Bass',
+        'quartet-feature3-desc': 'The groove foundation of the band',
+        'quartet-feature4-title': 'Drums',
+        'quartet-feature4-desc': 'The energy that gets people dancing',
+
         // Repertoire
         'repertoire-title': 'Repertoire',
         'repertoire-intro': 'A selection from our complete repertoire, carefully curated to create the perfect atmosphere',
@@ -364,6 +404,7 @@ function updateLanguage(lang) {
     // Update navigation
     document.querySelector('a[href="#accueil"]').textContent = t['nav-home'];
     document.querySelector('a[href="#duo"]').textContent = t['nav-duo'];
+    document.querySelector('a[href="#quartet"]').textContent = t['nav-quartet'];
     document.querySelector('a[href="#repertoire"]').textContent = t['nav-repertoire'];
     document.querySelector('a[href="#media"]').textContent = t['nav-media'];
     document.querySelector('a[href="#contact"]').textContent = t['nav-contact'];
@@ -375,13 +416,13 @@ function updateLanguage(lang) {
     
     // Update about section
     document.querySelector('#duo .section-title').textContent = t['about-title'];
-    document.querySelector('.lead').textContent = t['about-lead'];
-    const aboutPs = document.querySelectorAll('.about-text p:not(.lead):not(.last-paragraph)');
+    document.querySelector('#duo .lead').textContent = t['about-lead'];
+    const aboutPs = document.querySelectorAll('#duo .about-text p:not(.lead):not(.last-paragraph)');
     if (aboutPs[0]) aboutPs[0].textContent = t['about-p1'];
     if (aboutPs[1]) aboutPs[1].textContent = t['about-p2'];
-    document.querySelector('.last-paragraph').textContent = t['about-p3'];
-    
-    const featureItems = document.querySelectorAll('.feature-item');
+    document.querySelector('#duo .last-paragraph').textContent = t['about-p3'];
+
+    const featureItems = document.querySelectorAll('#duo .feature-item');
     if (featureItems[0]) {
         featureItems[0].querySelector('h3').textContent = t['feature1-title'];
         featureItems[0].querySelector('p').textContent = t['feature1-desc'];
@@ -394,7 +435,21 @@ function updateLanguage(lang) {
         featureItems[2].querySelector('h3').textContent = t['feature3-title'];
         featureItems[2].querySelector('p').textContent = t['feature3-desc'];
     }
-    
+
+    // Update quartet section
+    document.querySelector('#quartet .section-title').textContent = t['quartet-title'];
+    document.querySelector('#quartet .lead').textContent = t['quartet-lead'];
+    const quartetPs = document.querySelectorAll('#quartet .about-text p:not(.lead):not(.last-paragraph)');
+    if (quartetPs[0]) quartetPs[0].textContent = t['quartet-p1'];
+    if (quartetPs[1]) quartetPs[1].textContent = t['quartet-p2'];
+    document.querySelector('#quartet .last-paragraph').textContent = t['quartet-p3'];
+
+    const quartetFeatures = document.querySelectorAll('#quartet .feature-item');
+    for (let i = 0; i < quartetFeatures.length; i++) {
+        quartetFeatures[i].querySelector('h3').textContent = t[`quartet-feature${i + 1}-title`];
+        quartetFeatures[i].querySelector('p').textContent = t[`quartet-feature${i + 1}-desc`];
+    }
+
     // Update repertoire section
     document.querySelector('#repertoire .section-title').textContent = t['repertoire-title'];
     document.querySelector('.section-intro').textContent = t['repertoire-intro'];

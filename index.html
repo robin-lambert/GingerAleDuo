@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ginger Ale Duo - Duo Acoustique</title>
+    <title>Ginger Ale Project - Duo & Quartet</title>
+    <meta name="theme-color" content="#f6ede1">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500;600&family=Marcellus&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <svg class="logo-svg" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
-                    <text x="60" y="30" class="logo-text-main">Ginger Ale</text>
-                    <line x1="5" y1="33" x2="115" y2="33" class="logo-line" />
-                    <text x="60" y="45" class="logo-text-sub">DUO</text>
-                </svg>
+                <a href="#accueil" aria-label="Ginger Ale Project — accueil">
+                    <img src="assets/logo-dark.png" alt="Ginger Ale Project" class="logo-img">
+                </a>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#accueil" class="nav-link">Accueil</a></li>
                 <li><a href="#duo" class="nav-link">Le Duo</a></li>
+                <li><a href="#quartet" class="nav-link">Le Quartet</a></li>
                 <li><a href="#repertoire" class="nav-link">Répertoire</a></li>
                 <li><a href="#media" class="nav-link">Média</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="https://instagram.com/ginger_ale_duo" target="_blank" rel="noopener noreferrer" class="nav-link nav-instagram">
+                <li><a href="https://instagram.com/ginger_ale_project" target="_blank" rel="noopener noreferrer" class="nav-link nav-instagram">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                     </svg>
@@ -39,12 +39,9 @@
                 </a></li>
             </ul>
             <div class="language-switcher">
-                <button id="lang-fr" class="lang-btn active" data-lang="fr" aria-label="Français">
-                    🇫🇷
-                </button>
-                <button id="lang-en" class="lang-btn" data-lang="en" aria-label="English">
-                    🇬🇧
-                </button>
+                <button id="lang-fr" class="lang-btn active" data-lang="fr" aria-label="Français">FR</button>
+                <span class="lang-sep" aria-hidden="true">/</span>
+                <button id="lang-en" class="lang-btn" data-lang="en" aria-label="English">EN</button>
             </div>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -63,12 +60,8 @@
         <div class="hero-crop-right"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <svg class="hero-logo" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-                <text x="200" y="70" class="hero-logo-text-main">Ginger Ale</text>
-                <line x1="50" y1="85" x2="350" y2="85" class="hero-logo-line" />
-                <text x="200" y="115" class="hero-logo-text-sub">DUO</text>
-            </svg>
-            <p class="hero-subtitle fade-in-delay">Duo Acoustique • Guitare & Voix</p>
+            <img src="assets/logo-light.png" alt="Ginger Ale Project" class="hero-logo">
+            <p class="hero-subtitle fade-in-delay">Duo & Quartet • Lounge & Festif</p>
             <p class="hero-description fade-in-delay-2">De l'intimiste au festif, l'ambiance parfaite pour vos événements d'exception</p>
             <a href="#contact" class="cta-button fade-in-delay-3">Nous contacter</a>
         </div>
@@ -105,6 +98,46 @@
                             <span class="feature-icon">✨</span>
                             <h3>Ambiance</h3>
                             <p>Pop, Folk, Chanson Française et Rock</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quartet Section -->
+    <section id="quartet" class="about quartet">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Le Quartet</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">Quand le duo passe la vitesse supérieure</p>
+                    <p>Ginger Ale Quartet, c'est notre formule festive : au duo guitare-voix viennent s'ajouter une basse et une batterie pour un son plus ample, plus rythmé, et une énergie qui remplit la piste de danse.</p>
+                    <p>Le répertoire s'enrichit alors de titres pop, funk, soul et rock arrangés pour le groupe, avec des versions plus longues et plus dansantes de nos morceaux, pensées pour faire monter l'ambiance au fil de la soirée.</p>
+                    <p class="last-paragraph">Idéal pour les mariages, les soirées d'entreprise et tous les événements où la musique doit occuper le devant de la scène. Nous pouvons aussi enchaîner les deux formules : duo en cocktail, quartet pour la fête.</p>
+                    <div class="features">
+                        <div class="feature-item">
+                            <span class="feature-icon">🎤</span>
+                            <h3>Voix</h3>
+                            <p>Le fil conducteur de chaque morceau</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎸</span>
+                            <h3>Guitare</h3>
+                            <p>Riffs, groove et solos</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🎵</span>
+                            <h3>Basse</h3>
+                            <p>L'assise groove du groupe</p>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🥁</span>
+                            <h3>Batterie</h3>
+                            <p>L'énergie qui fait danser</p>
                         </div>
                     </div>
                 </div>
@@ -266,15 +299,11 @@
             </div>
             <div class="contact-content">
                 <div class="contact-info contact-centered">
-                    <svg class="contact-logo" viewBox="0 0 160 70" xmlns="http://www.w3.org/2000/svg">
-                        <text x="80" y="35" class="contact-logo-text-main">Ginger Ale</text>
-                        <text x="80" y="55" class="contact-logo-text-sub">DUO</text>
-                        <line x1="20" y1="42" x2="140" y2="42" class="contact-logo-line" />
-                    </svg>
+                    <img src="assets/logo-light.png" alt="Ginger Ale Project" class="contact-logo">
                     <h3>Réservez-nous pour votre événement</h3>
                     <div class="contact-card">
                         <div class="contact-left">
-                            <p class="contact-subtitle">Nous sommes disponibles pour :</p>
+                            <p class="contact-subtitle">Nous sommes disponibles en duo ou quartet pour :</p>
                             <ul class="contact-list">
                                 <li>Cocktails et réceptions</li>
                                 <li>Mariages</li>
@@ -292,7 +321,7 @@
                                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                                         </svg>
                                     </span>
-                                    <a href="mailto:contact.gingeraleduo@gmail.com">contact.gingeraleduo@gmail.com</a>
+                                    <a href="mailto:contact.gingeraleproject@gmail.com">contact.gingeraleproject@gmail.com</a>
                                 </div>
                                 <div class="contact-item">
                                     <span class="contact-icon phone-icon">
@@ -302,7 +331,7 @@
                                     </span>
                                     <a href="tel:+33677520188">+33 6 77 52 01 88</a>
                                 </div>
-                                <p class="contact-or" style="margin: -1.3rem 0 0.2rem 6rem; color: #8b7355; font-style: italic; font-size: 0.9rem;">ou</p>
+                                <p class="contact-or" style="margin: -1.3rem 0 0.2rem 6rem; color: rgba(255, 255, 255, 0.5); font-style: italic; font-size: 0.9rem;">ou</p>
                                 <div class="contact-item">
                                     <span class="contact-icon phone-icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -317,20 +346,23 @@
                                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                         </svg>
                                     </span>
-                                    <a href="https://instagram.com/ginger_ale_duo" target="_blank" rel="noopener noreferrer">@ginger_ale_duo</a>
+                                    <a href="https://instagram.com/ginger_ale_project" target="_blank" rel="noopener noreferrer">@ginger_ale_project</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- <div style="text-align:center; margin-top: 2rem;">
+                Badge Linkaband généré le 28-04-2026; Copyright Linkaband 2019 <a href='https://linkaband.com/ginger-ale-duo?utm_source=badge&utm_campaign=213767' target='_blank'><img src='https://linkaband.com/assets/images/validation/reservation-noir.png' alt='Ginger-ale-duo' style='width: 130px; height: 130px;'/></a>
+            </div> -->
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Ginger Ale Duo. Tous droits réservés.</p>
+            <p>&copy; 2026 Ginger Ale Project. Tous droits réservés.</p>
         </div>
     </footer>
 
