@@ -55,6 +55,14 @@
 
 html {
     scroll-behavior: smooth;
+    /* Les révélations au scroll décalent les éléments de 90px hors écran
+       (.reveal.from-right) : ce débordement rendait la page scrollable
+       horizontalement tant que les animations n'étaient pas terminées.
+       `clip` le découpe sans créer de conteneur de défilement — contrairement
+       à `hidden`, qui ferait de <html> un scroller et casserait position:
+       sticky. Le `overflow-x: hidden` du body reste le repli pour les
+       navigateurs sans support de `clip`. */
+    overflow-x: clip;
 }
 
 body {
@@ -62,7 +70,8 @@ body {
     color: var(--text-color);
     background: var(--bg-white);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: hidden; /* repli */
+    overflow-x: clip;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -1299,7 +1308,14 @@ section {
     }
 
     .contact-item a {
-        font-size: 14px;
+        /* L'adresse e-mail (33 caractères) est la ligne la plus longue du bloc
+           et débordait sur deux lignes. Sa taille suit ici la largeur réellement
+           disponible — le viewport moins 134px d'habillage (marges du conteneur
+           et de la carte, icône, gouttière) — pour tenir sur une seule ligne.
+           Le plafond à 16px rejoint la taille du desktop dès ~470px de large.
+           `word-break` reste en filet : en cas de métriques de police
+           différentes, mieux vaut un retour à la ligne qu'un texte rogné. */
+        font-size: clamp(8.5px, calc(5.25vw - 8.4px), 16px);
         word-break: break-word;
     }
 }
